@@ -437,3 +437,36 @@
 
 </body>
 </html>
+<!-- Botão de Libras -->
+<button
+    class="botao-libras"
+    type="button"
+    onclick="abrirLibras()"
+    aria-label="Abrir tradutor para Libras">
+    🤟 Acessibilidade em Libras
+</button>
+
+<!-- VLibras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+    new window.VLibras.Widget(
+        'https://vlibras.gov.br/app'
+    );
+
+    function abrirLibras() {
+        const botao = document.querySelector('[vw-access-button]');
+
+        if (botao) {
+            botao.click();
+        }
+    }
+</script>
