@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atletismo - Velocidade, Força e Superação</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fa;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #061a40, #0077b6);
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffcc00;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0, 30, 70, 0.75), rgba(0, 60, 100, 0.75)),
+                url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffcc00;
+        }
+
+        .hero p {
+            font-size: 21px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #061a40;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-size: 38px;
+            color: #061a40;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        .sobre {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-texto {
+            flex: 1;
+        }
+
+        .sobre-texto h3 {
+            color: #0077b6;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .sobre-texto p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .sobre-imagem {
+            flex: 1;
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .icone {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #061a40;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .curiosidades {
+            background: linear-gradient(135deg, #061a40, #0077b6);
+            color: white;
+        }
+
+        .curiosidades .titulo h2 {
+            color: white;
+        }
+
+        .curiosidades .titulo p {
+            color: #ddd;
+        }
+
+        .lista {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .item {
+            background-color: rgba(255,255,255,0.1);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 5px solid #ffcc00;
+            border-radius: 8px;
+        }
+
+        .item strong {
+            color: #ffcc00;
+        }
+
+        .frase {
+            text-align: center;
+            background-color: #ffcc00;
+            color: #061a40;
+            padding: 60px 20px;
+        }
+
+        .frase h2 {
+            font-size: 35px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        footer {
+            background-color: #061a40;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .sobre {
+                flex-direction: column;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <nav>
+            <div class="logo">ATLE<span>TISMO</span></div>
+
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#modalidades">Modalidades</a></li>
+                <li><a href="#curiosidades">Curiosidades</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- INÍCIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>O mundo do <span>Atletismo</span></h1>
+
+            <p>
+                Velocidade, força, resistência e determinação.
+                Conheça um dos esportes mais antigos e completos do mundo.
+            </p>
+
+            <a href="#sobre" class="btn">Conheça o Atletismo</a>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="titulo">
+            <h2>O que é Atletismo?</h2>
+            <p>Um esporte baseado nos movimentos naturais do ser humano.</p>
+        </div>
+
+        <div class="sobre">
+            <div class="sobre-texto">
+                <h3>Velocidade, força e resistência</h3>
+
+                <p>
+                    O atletismo é um conjunto de modalidades esportivas que
+                    envolve principalmente corridas, saltos, lançamentos e
+                    arremessos.
+                </p>
+
+                <p>
+                    É considerado um dos esportes mais tradicionais do mundo
+                    e possui grande importância nos Jogos Olímpicos.
+                </p>
+
+                <p>
+                    Os atletas treinam durante anos para melhorar seu
+                    desempenho e superar seus próprios limites.
+                </p>
+            </div>
+
+            <div class="sobre-imagem">
+                <img
+                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1000&q=80"
+                    alt="Atleta correndo">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALIDADES -->
+    <section id="modalidades">
+        <div class="titulo">
+            <h2>Principais Modalidades</h2>
+            <p>Conheça algumas das provas mais famosas do atletismo.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone">🏃</div>
+                <h3>Corridas</h3>
+                <p>
+                    Incluem provas de velocidade, meio-fundo, fundo,
+                    corridas com obstáculos e revezamentos.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone">🦘</div>
+                <h3>Saltos</h3>
+                <p>
+                    Entre os principais estão o salto em distância,
+                    salto triplo, salto em altura e salto com vara.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icone">🥏</div>
+                <h3>Lançamentos</h3>
+                <p>
+                    As provas incluem lançamento de disco, dardo,
+                    martelo e arremesso de peso.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section class="curiosidades" id="curiosidades">
+        <div class="titulo">
+            <h2>Curiosidades</h2>
+            <p>Alguns fatos interessantes sobre o atletismo.</p>
+        </div>
+
+        <div class="lista">
+
+            <div class="item">
+                <strong>01 — Origem:</strong>
+                O atletismo possui raízes nos Jogos da Antiguidade,
+                realizados na Grécia.
+            </div>
+
+            <div class="item">
+                <strong>02 — Olimpíadas:</strong>
+                O atletismo faz parte dos Jogos Olímpicos da era moderna
+                desde sua primeira edição, em 1896.
+            </div>
+
+            <div class="item">
+                <strong>03 — Diversidade:</strong>
+                Existem provas individuais e coletivas, realizadas
+                tanto em pistas quanto em campos.
+            </div>
+
+            <div class="item">
+                <strong>04 — Superação:</strong>
+                Muitos atletas passam anos treinando para conseguir
+                melhorar poucos centésimos de segundo em uma prova.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="frase">
+        <h2>
+            "No atletismo, o maior adversário é o seu próprio limite."
+        </h2>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>🏃 Atletismo — Velocidade, força e superação</p>
+        <p>© 2026 - Página criada para estudo</p>
+    </footer>
+
+</body>
+</html>
